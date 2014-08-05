@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   
 
+  get 'wines/index'
+
+  get 'wines/show'
+
  root :to => 'users#index'
 resources :user_sessions
 resources :users
