@@ -1,2 +1,17 @@
-<h1>Wines#show</h1>
-<p>Find me in app/views/wines/show.html.erb</p>
+<%= link_to 'Back', wines_path %>
+<h1><%= @wine.name %></h1>
+<p>Location: <%= @wine.location %></p>
+<p>Vintage: <%= @wine.vintage %></p>
+<p>Winery: <%= @wine.winery %></p>
+<% if @wine.note? %>
+<p>Additional Information: <%= @wine.note %></p>
+<% end %>
+<p>varietal: <%= @wine.varietal %></p>
+<p>Price: <%= @wine.price %></p>
+<% if @wine.wine_type? %>
+<p>Type: <%= @wine.wine_type %></p>
+<% end %>
+<p><img src="<%= @wine.image %>"></p>
+<% if @wine.note? %>
+<p>Additional Information: <%= @wine.note %></p>
+<% end %>
