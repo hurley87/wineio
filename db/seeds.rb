@@ -21,7 +21,7 @@ end
 
 # access 100 wines from Snooth directory
 base = 'http://api.snooth.com/wines/?akey='
-api = 'jns95qflgapvhrcl4cbbv8ixjjb3ldm45ntt4w6lajaacg0f'
+api = ENV['snooth_key']
 wine_search = base + api + '&q=wine' + '&xp=5' + '&n=100'
 uri = URI(wine_search)
 all_wines = Net::HTTP.get(uri)
