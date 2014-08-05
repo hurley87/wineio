@@ -5,3 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+require 'net/http'
+require 'rubygems'
+require 'json'
+
+# access 100 wines from Snooth directory
+base = 'http://api.snooth.com/wines/?akey='
+api = 'jns95qflgapvhrcl4cbbv8ixjjb3ldm45ntt4w6lajaacg0f'
+wineSearch = base + api + '&q=wine' + '&xp=5' + '&n=100'
+uri = URI(wineSearch)
+allWines = Net::HTTP.get(uri)
+parsedWines = JSON.parse(allWines)

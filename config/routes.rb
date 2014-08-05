@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
   
 
-  get 'wines/index'
-
   get 'wines/show'
 
- root :to => 'users#index'
+ root :to => 'wines#index'
 resources :user_sessions
+resources :wines
 resources :users
 
 get 'login' => 'user_sessions#new', :as => :login
