@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'wine_racks/create'
+
+  get 'wine_racks/show'
+
   get 'ratings/create'
 
 root :to => 'wines#index'
