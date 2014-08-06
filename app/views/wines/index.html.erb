@@ -1,5 +1,10 @@
 <h1>Wine Index</h1>
 
+<div id="prefetch">
+  <input class="typeahead" type="text" placeholder="Countries">
+</div>
+
+
 <% @wines.each do |wine| %>
 		<h1><%= link_to wine.name, wine_path(wine) %></h1>
 		<p><%= wine.location  %></p>

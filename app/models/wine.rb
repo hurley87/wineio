@@ -1,7 +1,7 @@
 class Wine < ActiveRecord::Base
 	has_many :reviews
 	has_many :ratings
-	belongs_to :user, through: :wine_racks
+	# belongs_to :user, through: :wine_rack
 
 	def average_rating 
 		stars = []

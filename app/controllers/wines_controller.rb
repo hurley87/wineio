@@ -1,6 +1,11 @@
 class WinesController < ApplicationController
   def index
   	@wines = Wine.all
+
+    respond_to do |format|
+        format.html
+        format.json { render json: @wines}
+    end
   end
 
   def show
