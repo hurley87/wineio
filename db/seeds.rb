@@ -27,7 +27,7 @@ end
 
 # access 100 wines from Snooth directory
 base = 'http://api.snooth.com/wines/?akey='
-api = ENV['snooth_key']
+api = 'jns95qflgapvhrcl4cbbv8ixjjb3ldm45ntt4w6lajaacg0f'
 wine_search = base + api + '&q=wine' + '&xp=5' + '&n=100'
 parsed_wines = get_json(wine_search, 'wines')
 
