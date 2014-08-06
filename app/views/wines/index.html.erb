@@ -4,6 +4,9 @@
   <input class="typeahead" type="text" placeholder="Wine Finer">
 </div>
 
+<% @wines.each do |wine|   %>
+<p><%= wine.wine_type  %></p>
+<% end %>
 
 <% @wines.each do |wine| %>
 		<h1><%= link_to wine.name, wine_path(wine) %></h1>

@@ -20,6 +20,10 @@
 
     }).done(function(data) {
         map.featureLayer.setGeoJSON(data);
+        map.featureLayer.on('click', function(e) {
+          e.layer.unbindPopup();
+            window.open(e.layer.feature.properties.url);
+        });
     });
 
    map.scrollWheelZoom.disable();
