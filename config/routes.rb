@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'ratings/create'
+
 root :to => 'wines#index'
 resources :user_sessions
 resources :wines do 
   resources :reviews, only: [:destroy, :create, :show]
+  resources :ratings, only: [:create]
 end
 resources :users 
 
