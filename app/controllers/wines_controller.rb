@@ -8,6 +8,7 @@ class WinesController < ApplicationController
 
   	if current_user
   		@review = @wine.reviews.build
+  		@rating = @wine.ratings.build
   	end
   end
 end

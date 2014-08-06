@@ -24,7 +24,6 @@
 <% end %>
 
 <% if current_user %>
-
   <h4>New Review</h4>
   <%= form_for [@wine, @review]  do |f| %>
     <% if @review.errors.any? %>
@@ -48,6 +47,41 @@
     </div>
   <% end %>
 
+<% else %>
+  <p>Please <%= link_to "log in", new_session_path %> to add a review.</p> 
+<% end %>
+
+<h1>Rate this Wine!</h1>
+
+
+<p>Average rating is <%= @wine.average_rating %></p>
+
+<% if current_user %>
+<%= form_for [@wine, @rating] do |f|  %>
+  <div class="field">
+    <%= f.label :one_star %><br />
+    <%= f.radio_button 'stars', 1 %>
+  </div>
+  <div class="field">
+    <%= f.label :two_star %><br />
+    <%= f.radio_button 'stars', 2 %>
+  </div>
+  <div class="field">
+    <%= f.label :three_star %><br />
+    <%= f.radio_button 'stars', 3 %>
+  </div>
+  <div class="field">
+    <%= f.label :four_star %><br />
+    <%= f.radio_button 'stars', 4 %>
+  </div>
+  <div class="field">
+    <%= f.label :five_star %><br />
+    <%= f.radio_button 'stars', 5 %>
+  </div>
+  <div class="actions">
+      <%= f.submit %>
+  </div>
+<% end %>
 <% else %>
   <p>Please <%= link_to "log in", new_session_path %> to add a review.</p> 
 <% end %>

@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
   	if @review.save
       redirect_to @wine, notice: 'Review created successfully'
     else
-      render 'products/show'
+      render 'wines/show'
     end
   end
 

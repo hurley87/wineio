@@ -6,7 +6,7 @@ root :to => 'wines#index'
 resources :user_sessions
 resources :wines do 
   resources :reviews, only: [:destroy, :create, :show]
-  resources :ratings, only: [:create]
+  resources :ratings, only: [:create, :show]
 end
 resources :users 
 
