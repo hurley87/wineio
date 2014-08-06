@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
-  
 
-  get 'wines/show'
-
- root :to => 'wines#index'
+root :to => 'wines#index'
 resources :user_sessions
-resources :wines
-resources :users
+resources :wines do 
+  resources :reviews, only: [:destroy, :create, :show]
+end
+resources :users 
 
 get 'login' => 'user_sessions#new', :as => :login
 post 'logout' => 'user_sessions#destroy', :as => :logout

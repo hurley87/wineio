@@ -5,5 +5,9 @@ class WinesController < ApplicationController
 
   def show
   	@wine = Wine.find(params[:id])
+
+  	if current_user
+  		@review = @wine.reviews.build
+  	end
   end
 end
