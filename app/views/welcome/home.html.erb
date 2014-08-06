@@ -1,6 +1,5 @@
 <h1>Welcome#home</h1>
 <div id="map"></div>
-<% pry %>
 
 <style type="text/css">
 	
@@ -15,7 +14,7 @@
 		var map = L.mapbox.map('map', 'dhurley99.j5jm8p4i').setView([49.239, -1.055], 2);
 
     $.ajax( {
-      url: '/wines',
+      url: '/',
       dataType: 'json',
       type: 'GET',
 

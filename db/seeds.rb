@@ -19,13 +19,18 @@ def convert_location(region)
 	end
 end
 
+def get_json(url, str)
+	uri = URI(url)
+	all_wines = Net::HTTP.get(uri)
+	JSON.parse(all_wines)[str]
+end
+
 # access 100 wines from Snooth directory
 base = 'http://api.snooth.com/wines/?akey='
 api = ENV['snooth_key']
 wine_search = base + api + '&q=wine' + '&xp=5' + '&n=100'
-uri = URI(wine_search)
-all_wines = Net::HTTP.get(uri)
-parsed_wines = JSON.parse(all_wines)['wines']
+parsed_wines = get_json(wine_search, 'wines')
+
 
 #access note on each wine
 base_wine = 'http://api.snooth.com/wine/?akey='
@@ -33,9 +38,15 @@ wine_note = base_wine + api
 
 parsed_wines.each do |wine|
 	wine_url = base_wine + api + '&id=' + wine['code']
-	uri_note = URI(wine_url)
-	wine_note = Net::HTTP.get(uri_note)
-	parsed_note = JSON.parse(wine_note)['wines']
+	parsed_note = get_json(wine_url, 'wines')
 	Wine.create(name: wine['name'], location: convert_location(wine['region']), winery: wine['winery'], wine_type: wine['type'], vintage: wine['vintage'], price: wine['price'], varietal: wine['varietal'], link: wine['link'], image: wine['image'], note: parsed_note[0]['wm_notes'])
 end	
+
+# access 100 wines from LCBO api
+url = 'http://lcboapi.com/products?q=wine&per_page=100'
+parsed_wines2 = get_json(url, 'result')
+
+parsed_wines2.each do |wine|
+	Wine.create(name: wine['name'], location: wine['origin'], winery: wine['producer_name'], wine_type: wine['secondary_category'], vintage: wine['released_on'], price: wine['price_in_cents'], varietal: wine['varietal'], image: wine['image_url'], note: wine['tasting_note'])
+end
 
