@@ -1,0 +1,29 @@
+<h1>Welcome#home</h1>
+<div id="map"></div>
+<% pry %>
+
+<style type="text/css">
+	
+	#map {
+		width: 100%;
+		height: 600px;
+	}
+</style>
+
+<script type="text/javascript">
+		
+		var map = L.mapbox.map('map', 'dhurley99.j5jm8p4i').setView([49.239, -1.055], 2);
+
+    $.ajax( {
+      url: '/wines',
+      dataType: 'json',
+      type: 'GET',
+
+    }).done(function(data) {
+        map.featureLayer.setGeoJSON(data);
+    });
+
+   map.scrollWheelZoom.disable();
+
+
+</script>

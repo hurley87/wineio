@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'wine_racks/create'
+  get 'welcome/home'
 
-  get 'wine_racks/show'
+  get 'welcome/about'
 
-  get 'ratings/create'
-
-root :to => 'wines#index'
+root :to => 'welcome#home'
 resources :user_sessions
 resources :wines do 
   resources :reviews, only: [:destroy, :create, :show]

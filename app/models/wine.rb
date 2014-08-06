@@ -8,6 +8,6 @@ class Wine < ActiveRecord::Base
 		self.ratings.each do |rating|
 			stars << rating.stars
 		end
-		stars[0..-2].inject(:+) / stars.count
+		stars[0..-2].inject(:+) / stars.count if stars.count != 0
 	end
 end

@@ -1,7 +1,10 @@
 <h1>Rate this Wine!</h1>
 
-
-<p>Average rating is <%= @wine.average_rating %> out of </p>
+<% if @wine.ratings.any? %>
+<p>Average rating is <%= @wine.average_rating %> out of <%= @wine.ratings.count %>.</p>
+<% else %>
+<p>Be first to rate this wine!</p>
+<% end %>
 
 <% if current_user %>
 <%= form_for [@wine, @rating] do |f|  %>
