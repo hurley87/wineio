@@ -25,6 +25,11 @@ def get_json(url, str)
 	JSON.parse(all_wines)[str]
 end
 
+def set_note(note)
+	note = '' if note.length > 250 
+	note
+end
+
 def get_color(wine_type)
 	color = ''
 	if wine_type == 'Red Wine'
@@ -55,7 +60,7 @@ wine_note = base_wine + api
 parsed_wines.each do |wine|
 	wine_url = base_wine + api + '&id=' + wine['code']
 	parsed_note = get_json(wine_url, 'wines')
-	Wine.create(name: wine['name'], location: convert_location(wine['region']), winery: wine['winery'], wine_type: wine['type'], wine_color: get_color(wine['type']), vintage: wine['vintage'], price: wine['price'], varietal: wine['varietal'], link: wine['link'], image: wine['image'], note: parsed_note[0]['wm_notes'])
+	Wine.create(name: wine['name'], location: convert_location(wine['region']), winery: wine['winery'], wine_type: wine['type'], wine_color: get_color(wine['type']), vintage: wine['vintage'], price: wine['price'], varietal: wine['varietal'], link: wine['link'], image: wine['image'], note: set_note(parsed_note[0]['wm_notes']))
 end	
 
 # access 100 wines from LCBO api
@@ -63,6 +68,6 @@ url = 'http://lcboapi.com/products?q=wine&per_page=100'
 parsed_wines2 = get_json(url, 'result')
 
 parsed_wines2.each do |wine|
-	Wine.create(name: wine['name'], location: wine['origin'], winery: wine['producer_name'], wine_type: wine['secondary_category'], wine_color: get_color(wine['secondary_category']), vintage: wine['released_on'], price: wine['price_in_cents'], varietal: wine['varietal'], image: wine['image_url'], note: wine['tasting_note'])
+	Wine.create(name: wine['name'], location: wine['origin'], winery: wine['producer_name'], wine_type: wine['secondary_category'], wine_color: get_color(wine['secondary_category']), vintage: wine['released_on'], price: wine['price_in_cents'], varietal: wine['varietal'], image: wine['image_url'], note: set_note(wine['tasting_note']))
 end
 
