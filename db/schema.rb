@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140806182512) do
+ActiveRecord::Schema.define(version: 20140807021430) do
 
   create_table "ratings", force: true do |t|
     t.integer  "stars"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20140806182512) do
     t.string   "wine_type"
     t.float    "longitude"
     t.float    "latitude"
+    t.string   "wine_color"
   end
 
 end

@@ -25,6 +25,22 @@ def get_json(url, str)
 	JSON.parse(all_wines)[str]
 end
 
+def get_color(wine_type)
+	color = ''
+	if wine_type == 'Red Wine'
+		color = '#96281B'
+	elsif wine_type == 'White Wine'
+		color = '#F2F1EF'
+	elsif wine_type == 'Sparkling Wine'   
+		color = '#FDE3A7'
+	elsif wine_type == 'Specialty Wines'
+		color = '#22A7F0'
+	elsif wine_type == 'Fortified Wines'
+		color = '#913D88'	
+	end
+	color
+end
+
 # access 100 wines from Snooth directory
 base = 'http://api.snooth.com/wines/?akey='
 api = 'jns95qflgapvhrcl4cbbv8ixjjb3ldm45ntt4w6lajaacg0f'
@@ -39,7 +55,7 @@ wine_note = base_wine + api
 parsed_wines.each do |wine|
 	wine_url = base_wine + api + '&id=' + wine['code']
 	parsed_note = get_json(wine_url, 'wines')
-	Wine.create(name: wine['name'], location: convert_location(wine['region']), winery: wine['winery'], wine_type: wine['type'], vintage: wine['vintage'], price: wine['price'], varietal: wine['varietal'], link: wine['link'], image: wine['image'], note: parsed_note[0]['wm_notes'])
+	Wine.create(name: wine['name'], location: convert_location(wine['region']), winery: wine['winery'], wine_type: wine['type'], wine_color: get_color(wine['type']), vintage: wine['vintage'], price: wine['price'], varietal: wine['varietal'], link: wine['link'], image: wine['image'], note: parsed_note[0]['wm_notes'])
 end	
 
 # access 100 wines from LCBO api
@@ -47,6 +63,6 @@ url = 'http://lcboapi.com/products?q=wine&per_page=100'
 parsed_wines2 = get_json(url, 'result')
 
 parsed_wines2.each do |wine|
-	Wine.create(name: wine['name'], location: wine['origin'], winery: wine['producer_name'], wine_type: wine['secondary_category'], vintage: wine['released_on'], price: wine['price_in_cents'], varietal: wine['varietal'], image: wine['image_url'], note: wine['tasting_note'])
+	Wine.create(name: wine['name'], location: wine['origin'], winery: wine['producer_name'], wine_type: wine['secondary_category'], wine_color: get_color(wine['secondary_category']), vintage: wine['released_on'], price: wine['price_in_cents'], varietal: wine['varietal'], image: wine['image_url'], note: wine['tasting_note'])
 end
 
