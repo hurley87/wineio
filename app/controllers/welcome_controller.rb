@@ -16,7 +16,7 @@ class WelcomeController < ApplicationController
 			      address: wine.location,
 			      :'marker-color' => wine.wine_color,
 			      :'marker-symbol' => 'bar',
-			      :'marker-size' => 'medium',
+			      :'marker-size' => 'small',
 			      url: './wines/' + wine.id.to_s
 			    }
 			  }

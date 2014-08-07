@@ -1,17 +1,16 @@
-<h1>Welcome#home</h1>
+<h1 class="center opener">All About Wine Worldwide</h1>
 <div id="map"></div>
 
-<style type="text/css">
-	
-	#map {
-		width: 100%;
-		height: 600px;
-	}
-</style>
-
+<ul id="legend">
+  <li class="red">Red Wine</li>
+  <li class='white'>White Wine</li>
+  <li class='sparkling'>Sparkling Wine</li>
+  <li class='speciality'>Speciality Wine</li>
+  <li class='fortified'>Fortified Wine</li>
+</ul>
 <script type="text/javascript">
 		
-		var map = L.mapbox.map('map', 'dhurley99.j5jm8p4i').setView([49.239, -1.055], 2);
+		var map = L.mapbox.map('map', 'dhurley99.j5jm8p4i').setView([44.239, -50.055], 3);
 
     $.ajax( {
       url: '/',
