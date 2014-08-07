@@ -1,7 +1,8 @@
 class WinesController < ApplicationController
   def index
+    @wines = Wine.order('created_at DESC').page(params[:page])
   	@wines1 = Wine.all
-    @wines = Wine.page(params[:page])
+    
     respond_to do |format|
         format.html
         format.json { render json: @wines1}

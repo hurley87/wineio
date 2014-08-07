@@ -12,7 +12,8 @@ class RatingsController < ApplicationController
   	
 
     respond_to do |format|
-      if @rating.save 
+      if @rating.save
+        @wine.average_rating
         format.html { redirect_to @wine, :notice => "Your rating has been saved!" }
         format.js {}
       else
