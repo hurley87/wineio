@@ -1,0 +1,4 @@
+<% @wines.each do |wine| %>
+		<h3><%= link_to wine.name, wine_path(wine) %></h3>
+		<p><%= wine.location  %></p>
+<% end %>

@@ -9,7 +9,7 @@
 <% end %>
 
 <% if current_user %>
-<%= form_for [@wine, @rating], remote: true do |f|  %>
+<%= form_for [@wine, @rating] do |f|  %>
   <div class="field">
     <%= f.label :one_star %><br />
     <%= f.radio_button 'stars', 1 %>

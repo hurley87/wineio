@@ -15,6 +15,12 @@ resources :users
 get 'login' => 'user_sessions#new', :as => :login
 post 'logout' => 'user_sessions#destroy', :as => :logout
 
+get '/red', to: 'wines#red'
+get '/white', to: 'wines#white'
+get '/speciality', to: 'wines#speciality'
+get '/sparkling', to: 'wines#sparkling'
+get '/fortified', to: 'wines#fortified'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

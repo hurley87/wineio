@@ -15,6 +15,11 @@ $(document).ready(function() {
 	  displayKey: 'name',
 	  source: wines.ttAdapter()
 	});
+
+    $('.typeahead').on('input', function() {
+        console.log($(this).val());
+    });
+ 
 });
  
 
