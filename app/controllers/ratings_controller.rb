@@ -9,11 +9,17 @@ class RatingsController < ApplicationController
   	@rating = @wine.ratings.build(ratings_params)
   	@rating.user_id = current_user.id
 
-  	if @rating.save 
-  		redirect_to @wine, :notice => "Your rating has been saved!"
-  	else
-  		render 'wines/show'
-  	end
+  	
+
+    respond_to do |format|
+      if @rating.save 
+        format.html { redirect_to @wine, :notice => "Your rating has been saved!" }
+        format.js {}
+      else
+        format.html {render 'wines/show', :notcie => 'There was an error'}
+        format.js {}
+      end
+    end
   end
 
   private

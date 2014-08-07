@@ -1,13 +1,15 @@
 <h1>Rate this Wine!</h1>
 
 <% if @wine.ratings.any? %>
-<p>Average rating is <%= @wine.average_rating %> out of <%= @wine.ratings.count %>.</p>
+<div id="rating-time">
+  <%= render :partial => "show_rating" %>
+</div>
 <% else %>
 <p>Be first to rate this wine!</p>
 <% end %>
 
 <% if current_user %>
-<%= form_for [@wine, @rating] do |f|  %>
+<%= form_for [@wine, @rating], remote: true do |f|  %>
   <div class="field">
     <%= f.label :one_star %><br />
     <%= f.radio_button 'stars', 1 %>
