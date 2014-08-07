@@ -11,9 +11,18 @@ class Wine < ActiveRecord::Base
 
 	def average_rating 
 		stars = []
+		avg = 0
+
 		self.ratings.each do |rating|
 			stars << rating.stars
 		end
-		stars[0..-2].inject(:+) / stars.count if stars.count != 0
+
+		if stars == [nil]
+			avg = 0
+		else
+			avg = stars[0..-2].inject(:+) / self.ratings.count
+		end
+
+		avg
 	end
 end
