@@ -36,6 +36,7 @@ gem "figaro"
 gem 'pry'
 gem 'twitter-typeahead-rails'
 gem "geocoder"
+gem 'kaminari'
 
 gem 'rails_12factor', group: :production
 
