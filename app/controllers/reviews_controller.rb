@@ -9,10 +9,15 @@ class ReviewsController < ApplicationController
 
   	@review.user_id = current_user.id
 
-  	if @review.save
-      redirect_to @wine, notice: 'Review created successfully'
-    else
-      render 'wines/show'
+  	
+    respond_to do |format|
+      if @review.save
+        format.html { redirect_to @wine, notice: 'Review created successfully' }
+        format.js {}
+      else
+        format.html {render 'wines/show', notice: 'There was an error'}
+        format.js {}
+      end
     end
   end
 
