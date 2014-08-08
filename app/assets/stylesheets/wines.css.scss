@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//wine index page
 $fontColor: #CF000F;
 $secondColor: #DADFE1;
 
@@ -10,7 +11,7 @@ $secondColor: #DADFE1;
 		color: $fontColor;
 		text-decoration: none;
 		padding: 10px;
-		
+		width: 150px;
 		a {
 			color: $fontColor;
 		}
@@ -53,3 +54,57 @@ $secondColor: #DADFE1;
 	width: 90%;
 	margin: 0 auto;
 }
+
+// wine show page
+.container {
+	width: 85%;
+	height: 600px;
+	margin: 0 auto;
+
+	.show-left {
+		width: 50%;
+		float:left;
+
+		img {
+			width: 50% !important;
+		}
+	}
+
+	.show-right {
+		width: 50%;
+		float: right;
+		overflow: scroll;
+	}
+
+	#rating-form .feild {
+			background-color: white;
+			width: 20%;
+			display: inline;
+	}
+
+	h2 {
+		color: $fontColor;
+		margin-top: 15px;
+		font-weight: 100;
+	}
+
+	.r-rating {
+		background-color: white;
+		padding: 10px;
+		margin-right: 5px;
+		label {
+			color: $fontColor;
+
+		}
+
+		input {
+			border: none;
+		}
+	}
+}
+
+.review-container {
+
+
+}
+

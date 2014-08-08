@@ -1,22 +1,31 @@
 
+
 <h1 class='opener center'><%= @wine.name %></h1>
-
-<p>Location: <%= @wine.location %></p>
-<p>Vintage: <%= @wine.vintage %></p>
-<p>Winery: <%= @wine.winery %></p>
-<% if @wine.note? %>
-<p>Additional Information: <%= @wine.note %></p>
-<% end %>
-<p>varietal: <%= @wine.varietal %></p>
-<p>Price: <%= @wine.price %></p>
-<% if @wine.wine_type? %>
-<p>Type: <%= @wine.wine_type %></p>
-<% end %>
-<p><img src="<%= @wine.image %>"></p>
-<% if @wine.note? %>
-<p>Additional Information: <%= @wine.note %></p>
-<% end %>
-
-<%= render 'reviews'  %>
-
-<%= render 'ratings'  %>
+<h3 class='opener center'> <%= link_to "Back", wine_path(@wine.id - 1), class: 'o-link' %> | <%= link_to "Forward", wine_path(@wine.id + 1), class: 'o-link' %></h3>
+<div class='container'>
+	<div class="show-left">
+		<% if @wine.image %>
+		<p class='center'><img src="<%= @wine.image %>"></p>
+		<% else %>
+		<p class='center'><%= image_tag('wine.jpeg') %></p>
+		<% end %>
+	</div>
+	<div class='show-right'>
+		<p>Location: <%= @wine.location %></p>
+		<p>Vintage: <%= @wine.vintage %></p>
+		<p>Winery: <%= @wine.winery %></p>
+		<p>varietal: <%= @wine.varietal %></p>
+		<p>Price: <%= @wine.price %></p>
+		<% if @wine.wine_type? %>
+		<p>Type: <%= @wine.wine_type %></p>
+		<% end %>
+		<% if @wine.note? %>
+		<p>Additional Information: <%= @wine.note %></p>
+		<% end %>
+	</div>
+	<%= render 'ratings'  %>
+	<br class='clear'>
+	<div class='review-wine'>
+		<%= render 'reviews'  %>
+	</div>
+</div>

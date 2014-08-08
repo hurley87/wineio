@@ -18,14 +18,15 @@ $fontColor: #CF000F;
 		padding-left: 25%;
 	}
 
-	.submit-btn {
+
+}
+
+.submit-btn {
 		width: 160px;
 		cursor: pointer;
 		background-color: $fontColor;
 		color: white;
 		opacity: 0.8;
 		font-size: 1.2em;
-		
+		border: none;
 	}
-
-}

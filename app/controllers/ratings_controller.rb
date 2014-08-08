@@ -9,8 +9,6 @@ class RatingsController < ApplicationController
   	@rating = @wine.ratings.build(ratings_params)
   	@rating.user_id = current_user.id
 
-  	
-
     respond_to do |format|
       if @rating.save
         @wine.average_rating

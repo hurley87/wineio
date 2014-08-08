@@ -1,4 +1,5 @@
-<h1>Rate this Wine!</h1>
+
+<h2>Rate this Wine!</h2>
 
 <% if @wine.ratings.any? %>
 <div id="rating-time">
@@ -8,32 +9,36 @@
 <p>Be first to rate this wine!</p>
 <% end %>
 
+<div id='rating-form'>
 <% if current_user %>
 <%= form_for [@wine, @rating] do |f|  %>
-  <div class="field">
-    <%= f.label :one_star %><br />
+    <span class='r-rating'>
+    <%= f.label :one_star %>
     <%= f.radio_button 'stars', 1 %>
-  </div>
-  <div class="field">
-    <%= f.label :two_star %><br />
+    </span>
+    <span class='r-rating'>
+    <%= f.label :two_star %>
     <%= f.radio_button 'stars', 2 %>
-  </div>
-  <div class="field">
-    <%= f.label :three_star %><br />
+    </span>
+    <span class='r-rating'>
+    <%= f.label :three_star %>
     <%= f.radio_button 'stars', 3 %>
-  </div>
-  <div class="field">
-    <%= f.label :four_star %><br />
+    </span>
+    <span class='r-rating'>
+    <%= f.label :four_star %>
     <%= f.radio_button 'stars', 4 %>
-  </div>
-  <div class="field">
-    <%= f.label :five_star %><br />
+    </span>
+    <span class='r-rating'>
+    <%= f.label :five_star %>
     <%= f.radio_button 'stars', 5 %>
-  </div>
+    </span>
+    <br>
   <div class="actions">
-      <%= f.submit %>
+    <br>
+      <p><%= f.submit 'Rate', class: 'submit-btn' %></p>
   </div>
 <% end %>
 <% else %>
   <p>Please <%= link_to "log in", new_user_session_path %> to add a review.</p> 
 <% end %>
+</div>
