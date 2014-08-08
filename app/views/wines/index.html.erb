@@ -5,18 +5,24 @@
 </div>
  -->
 
- <h3 id="wine-cat" class="opener center">Choose a Category</h3>
+<h3 id="wine-cat" class="opener center">Choose a Category</h3>
 
 <h1 class="opener center"><%= link_to 'Red', red_path, remote: true, class: 'o-link' %> 
 <%= link_to 'White', white_path, remote: true, class: 'o-link'  %> 
 <%= link_to 'Sparkling', sparkling_path, remote: true, class: 'o-link'  %>
 <%= link_to 'Speciality', speciality_path, remote: true, class: 'o-link'  %>
  <%= link_to 'Fortified', fortified_path, remote: true, class: 'o-link'  %></h1>
-
+<div class='center'>
 <p class='page center'><%= paginate @wines %></p>
+</div>
 
-
-<div id="wine-listing">
+<div id="wine-listing" class="transitions-enabled">
 	<%= render 'wine_list' %>
 </div>
 
+<script type="text/javascript">
+	$('.o-link').on('click', function() {
+			$('#wine-cat').text($(this).text()).fadeIn(1000);
+	});
+
+</script>
