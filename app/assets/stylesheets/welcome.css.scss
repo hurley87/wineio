@@ -2,13 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$primaryColor: #EF4836;
-$secondColor: #D91E18;
+$primaryColor: #EEEEEE;
+$secondColor: #DADFE1;
 $red: #96281B;
 $white: #F2F1EF;
 $sparkling: #FDE3A7;
 $speciality: #22A7F0;
 $fortified: #913D88;
+$fontColor: #CF000F;
 
 body {
 	background-color: $primaryColor;
@@ -29,7 +30,7 @@ body {
 }
 
 @mixin nav-styles {
-	color: white;
+	color: $fontColor;
 	text-decoration: none;
 	font-size: 1.2em;
 	padding: 5px;
@@ -56,10 +57,10 @@ body {
 }
 
 .opener {
-	background-color: $secondColor;
-	padding: 40px;
+	background-color: $primaryColor;
+	padding: 20px;
 	margin: 0;
-	color: white;
+	color: $fontColor;
 	font-weight: 100;
 }
 

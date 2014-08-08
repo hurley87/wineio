@@ -1,19 +1,22 @@
-<h1>Wine Index</h1>
+
 
 <!-- <div id="prefetch">
   <input class="typeahead" type="text" placeholder="Wine Finder" value='hey'><span id='finder'>Search</span>
 </div>
  -->
-<ul >
-  <li><%= link_to 'Red', red_path, remote: true %> </li>
-  <li><%= link_to 'White', white_path, remote: true  %> </li>
-  <li><%= link_to 'Sparkling', sparkling_path, remote: true  %></li>
-  <li><%= link_to 'Speciality', speciality_path, remote: true  %></li>
-  <li> <%= link_to 'Fortified', fortified_path, remote: true  %></li>
-</ul>
+
+ <h3 id="wine-cat" class="opener center">Choose a Category</h3>
+
+<h1 class="opener center"><%= link_to 'Red', red_path, remote: true, class: 'o-link' %> 
+<%= link_to 'White', white_path, remote: true, class: 'o-link'  %> 
+<%= link_to 'Sparkling', sparkling_path, remote: true, class: 'o-link'  %>
+<%= link_to 'Speciality', speciality_path, remote: true, class: 'o-link'  %>
+ <%= link_to 'Fortified', fortified_path, remote: true, class: 'o-link'  %></h1>
+
+<p class='page center'><%= paginate @wines %></p>
+
 
 <div id="wine-listing">
 	<%= render 'wine_list' %>
 </div>
 
-<%= paginate @wines %>

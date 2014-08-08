@@ -1,3 +1,23 @@
 // Place all the styles related to the wines controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$fontColor: #CF000F;
+$secondColor: #DADFE1;
+
+.o-link {
+		
+		color: $fontColor;
+		text-decoration: none;
+		padding: 10px;
+		
+		a {
+			color: $fontColor;
+		}
+		
+		&:hover {
+			background-color: $secondColor;
+			color: $fontColor;
+		}
+		
+}

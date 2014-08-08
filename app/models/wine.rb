@@ -1,7 +1,7 @@
 class Wine < ActiveRecord::Base
 	has_many :reviews
 	has_many :ratings
-	# belongs_to :user, through: :wine_rack
+	belongs_to :wine_rack
 	geocoded_by :get_location
 	before_save :geocode
 

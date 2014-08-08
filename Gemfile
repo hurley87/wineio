@@ -37,6 +37,7 @@ gem 'pry'
 gem 'twitter-typeahead-rails'
 gem "geocoder"
 gem 'kaminari'
+gem 'masonry-rails'
 
 gem 'rails_12factor', group: :production
 
