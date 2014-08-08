@@ -1,3 +1,5 @@
-<% @wine.reviews.each do |review| %>
-	<p><%= review.body %></p>
+<% if @wine.reviews.count > 1 %>
+	<% @wine.reviews.each do |review| %>
+		<p><%= review.user.name %> said: <%= review.body %></p>
+	<% end %>
 <% end %>

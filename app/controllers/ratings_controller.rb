@@ -7,7 +7,7 @@ class RatingsController < ApplicationController
 
   def create
   	@rating = @wine.ratings.build(ratings_params)
-  	@rating.user_id = current_user.id
+  	@rating.user = current_user
 
     respond_to do |format|
       if @rating.save

@@ -6,10 +6,8 @@ class ReviewsController < ApplicationController
 
   def create
   	@review = @wine.reviews.build(review_params)
+  	@review.user = current_user
 
-  	@review.user_id = current_user.id
-
-  	
     respond_to do |format|
       if @review.save
         format.html { redirect_to @wine, notice: 'Review created successfully' }
@@ -29,7 +27,7 @@ class ReviewsController < ApplicationController
   private 
 
   def review_params
-  	params.require(:review).permit(:body, :wine_id)
+  	params.require(:review).permit(:body, :wine_id, :user_id)
   end
 
   def load_wine
