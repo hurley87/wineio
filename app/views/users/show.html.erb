@@ -3,6 +3,10 @@
 <h1 class='opener center'><%= @user.name %>'s Wine Rack</h1>
 <h3 class='opener center'><%= link_to 'Edit Profile', edit_user_path(@user), class: "o-link" %></h3>
 
+<% if @wines.count > 0 %>
 <div id="wine-listing" class="transitions-enabled">
 	<%= render 'wines/wine_list' %>
 </div>
+<% else %>
+	<h4 class="opener center">Why do you need a wine rack? You haven’t picked one wine, let alone many wines that would necessitate an entire rack.</h4>
+<% end %>

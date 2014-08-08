@@ -26,7 +26,7 @@ def get_json(url, str)
 end
 
 def set_note(note)
-	note = '' if note.length > 250 
+	note = '' if note && note.length > 250 
 	note
 end
 
