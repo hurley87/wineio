@@ -1,9 +1,4 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<h1 class='opener center'><%= @user.email %>'s Wine Rack</h1>
+<h3 class='opener center'><%= link_to 'Edit Profile', edit_user_path(@user), class: "o-link" %></h3>

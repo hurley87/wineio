@@ -5,7 +5,7 @@
 </div>
  -->
 
-<h3 id="wine-cat" class="opener center">Choose a Category</h3>
+
 
 <h1 class="opener center"><%= link_to 'Red', red_path, remote: true, class: 'o-link' %> 
 <%= link_to 'White', white_path, remote: true, class: 'o-link'  %> 
@@ -13,6 +13,7 @@
 <%= link_to 'Speciality', speciality_path, remote: true, class: 'o-link'  %>
  <%= link_to 'Fortified', fortified_path, remote: true, class: 'o-link'  %></h1>
 <div class='center'>
+<h3 id="wine-cat" class="opener center">Choose a Category</h3>	
 <p class='page center'><%= paginate @wines %></p>
 </div>
 

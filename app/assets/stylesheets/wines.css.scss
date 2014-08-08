@@ -31,7 +31,21 @@ $secondColor: #DADFE1;
 .box {
 
 	height: 250px;
-	width: 250px;
+	width: 225px;
+	overflow: hidden;
+	h3 {
+		color: $fontColor;
+		text-decoration: none;
+	}
+
+	&:hover {
+		background-color: $fontColor;
+		opacity: 0.6;
+
+		h3 {
+			color: white;
+		}
+	}
 
 }
 

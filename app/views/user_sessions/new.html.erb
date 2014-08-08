@@ -1,5 +1,7 @@
-<h1>Login</h1>
+<h1 class='opener center'>Login</h1>
+<h3 class="opener center">or <%= link_to 'Register', new_user_path, class: 'o-link' %></h3>
 
+<div class='form'>
 <%= form_tag user_sessions_path, :method => :post do %>
   <div class="field">
     <%= label_tag :email %><br />
@@ -7,11 +9,8 @@
   </div>
   <div class="field">
     <%= label_tag :password %><br />
-    <%= password_field_tag :password %>
-  </div>
-  <div class="actions">
-    <%= submit_tag "Login" %>
-  </div>
+    <%= password_field_tag :password %><br><br>
+    <%= submit_tag "Login", class: 'submit-btn' %>
+  </div>   
 <% end %>
-
-<%= link_to 'Back', user_sessions_path %>
+</div>

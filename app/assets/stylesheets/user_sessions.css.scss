@@ -1,3 +1,31 @@
 // Place all the styles related to the UserSessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$fontColor: #CF000F;
+
+.form {
+	margin: 0 auto;
+	width: 20%;
+	padding: 30px;
+
+	input {
+		border: none;
+		padding: 5px;
+		width: 150px;
+	}
+
+	.field {
+		padding-left: 25%;
+	}
+
+	.submit-btn {
+		width: 160px;
+		cursor: pointer;
+		background-color: $fontColor;
+		color: white;
+		opacity: 0.8;
+		font-size: 1.2em;
+		
+	}
+
+}
