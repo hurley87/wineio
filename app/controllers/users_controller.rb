@@ -11,6 +11,15 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @racks = Wrack.where(user_id: @user.id)
+    ids = []
+    @racks.each do |id|
+      ids << id.wine_id
+    end
+    @wines = []
+    ids.each do |id|
+      @wines << Wine.find(id)
+    end
   end
 
   # GET /users/new

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140808154309) do
+ActiveRecord::Schema.define(version: 20140808175744) do
 
   create_table "ratings", force: true do |t|
     t.integer  "stars"
@@ -63,6 +63,13 @@ ActiveRecord::Schema.define(version: 20140808154309) do
     t.float    "longitude"
     t.float    "latitude"
     t.string   "wine_color"
+  end
+
+  create_table "wracks", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "wine_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

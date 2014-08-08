@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 	authenticates_with_sorcery!
 	has_many :reviews
 	has_many :ratings
+	belongs_to :wrack
 
 	validates :name, presence: true
   validates :password, length: { minimum: 3 }

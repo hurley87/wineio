@@ -11,7 +11,7 @@ class WinesController < ApplicationController
 
   def show
   	@wine = Wine.find(params[:id])
-
+    @wrack = Wrack.new
   	if current_user
   		@review = @wine.reviews.build
   		@rating = @wine.ratings.build

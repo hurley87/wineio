@@ -10,7 +10,15 @@
 		<p class='center'><%= image_tag('wine.jpeg') %></p>
 		<% end %>
 	</div>
+
 	<div class='show-right'>
+		<% if current_user %>
+			<%= form_for [@wine, @wrack] do |f|  %>
+				<% submit_tag 'Collect This Wine', class: 'submit-btn' %>
+			<% end %>
+		<% else %>	
+			<%= link_to 'Register', new_user_path, class: 'o-link' %> to start collecting
+		<% end %>
 		<p>Location: <%= @wine.location %></p>
 		<p>Vintage: <%= @wine.vintage %></p>
 		<p>Winery: <%= @wine.winery %></p>
@@ -23,6 +31,7 @@
 		<p>Additional Information: <%= @wine.note %></p>
 		<% end %>
 	</div>
+
 	<%= render 'ratings'  %>
 	<br class='clear'>
 	<div class='review-wine'>

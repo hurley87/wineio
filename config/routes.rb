@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+
+ 
+
   get 'welcome/home'
 
   get 'welcome/about'
@@ -7,6 +10,7 @@ Rails.application.routes.draw do
 root :to => 'welcome#home'
 resources :user_sessions
 resources :wines do 
+  resources :wracks, only: [:create]
   resources :reviews, only: [:destroy, :create, :show]
   resources :ratings, only: [:create, :show]
 end
