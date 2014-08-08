@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140807021430) do
+ActiveRecord::Schema.define(version: 20140808154309) do
 
   create_table "ratings", force: true do |t|
     t.integer  "stars"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20140807021430) do
     t.string   "salt",             null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

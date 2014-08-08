@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 	has_many :reviews
 	has_many :ratings
 
-
+	validates :name, presence: true
   validates :password, length: { minimum: 3 }
   validates :password, confirmation: true
   validates :password_confirmation, presence: true
