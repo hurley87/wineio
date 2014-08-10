@@ -5,8 +5,14 @@
 
 <% if @wines.count > 0 %>
 <div id="wine-listing" class="transitions-enabled">
-	<%= render 'wines/wine_list' %>
+	<% @wines.each do |wine| %>
+	<%= link_to wine_path(wine) do %><div class="box2">
+		<h5 class="center opener"><%= wine.name %></h5>
+		<p class='center'><img src="<%= wine.image  %>"></p>
+	</div><% end %>
+<% end %>
 </div>
 <% else %>
 	<h4 class="opener center">Why do you need a wine rack? You haven’t picked one wine, let alone many wines that would necessitate an entire rack.</h4>
 <% end %>
+

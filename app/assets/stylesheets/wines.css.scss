@@ -32,11 +32,16 @@ $secondColor: #DADFE1;
 .box {
 
 	height: 250px;
-	width: 225px;
+	width: 250px;
 	overflow: hidden;
-	h3 {
+	h5 {
 		color: $fontColor;
 		text-decoration: none;
+		margin-top: 10%;
+	}
+
+	img {
+		height: 175px;
 	}
 
 	&:hover {
@@ -48,6 +53,14 @@ $secondColor: #DADFE1;
 		}
 	}
 
+}
+
+.box2 {
+	@extend .box;
+	border-radius: 125px;
+	border: 2px solid $fontColor;
+	float: left;
+	margin: 20px;
 }
 
 #wine-listing {
