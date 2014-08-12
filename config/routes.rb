@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
+namespace :api, defaults: { format: :json } do
+  namespace :v1 do
+    resources :wines, only: [:index]
+  end  
+end
 
- 
-
-  get 'welcome/home'
-
-  get 'welcome/about'
+get 'welcome/about'
 
 root :to => 'welcome#home'
 resources :user_sessions
