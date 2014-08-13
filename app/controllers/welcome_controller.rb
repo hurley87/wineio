@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
   def home
   	@wines = Wine.all
-
+  	
   	@geojson = Array.new
   	@wines.each do |wine|
   		if wine.longitude != nil && wine.latitude != nil

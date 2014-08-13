@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+get "/auth/auth0/callback" => "callback#store"
+get "/auth/failure" => "callback#failure"
+
 namespace :api, defaults: { format: :json } do
   namespace :v1 do
     resources :wines, only: [:index]

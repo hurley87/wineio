@@ -2,31 +2,85 @@
 <h3 class="opener center">Choose a point on the map.</h3>
 <div id="map"></div>
 
-<!-- <ul id="legend">
-  <li class="red">Red </li>
-  <li class='white'>White </li>
-  <li class='sparkling'>Sparkling </li>
-  <li class='speciality'>Speciality </li>
-  <li class='fortified'>Fortified </li>
-</ul> -->
+<div ng-app="switchableGrid" ng-controller="SwitchableGridController">
+
+  <div class="bar">
+    <p class='center'>
+    <a  ng-class="{active: layout == 'list'}" ng-click="layout = 'list'">List</a>
+    <a  ng-class="{active: layout == 'grid'}" ng-click="layout = 'grid'">Grid</a></p>
+  </div>
+
+  <div class='container'>
+  <ul ng-show="layout == 'grid'" class="grid">
+      <li ng-repeat="p in pics">
+      <a href="{{p.link}}" target="_blank"><img ng-src="{{p.images.low_resolution.url}}" /></a>
+    </li>
+  </ul>
+
+  <ul ng-show="layout == 'list'" class="list">
+    <li ng-repeat="p in pics">
+      <a href="{{p.link}}" target="_blank"><img ng-src="{{ p.images.thumbnail.url }}" /></a>
+      <p>{{p.caption.text}}</p>
+    </li>
+  </ul>
+  </div>
+</div>
+
 <script type="text/javascript">
-		
-		var map = L.mapbox.map('map', 'dhurley99.j5jm8p4i').setView([44.239, -50.055], 3);
 
-    $.ajax( {
-      url: '/',
-      dataType: 'json',
-      type: 'GET',
+//mapbox		
+var map = L.mapbox.map('map', 'dhurley99.j5jm8p4i').setView([44.239, -50.055], 3);
 
-    }).done(function(data) {
-        map.featureLayer.setGeoJSON(data);
-        map.featureLayer.on('click', function(e) {
-          e.layer.unbindPopup();
-            window.open(e.layer.feature.properties.url);
-        });
+$.ajax( {
+  url: '/',
+  dataType: 'json',
+  type: 'GET',
+
+}).done(function(data) {
+    map.featureLayer.setGeoJSON(data);
+    map.featureLayer.on('click', function(e) {
+      e.layer.unbindPopup();
+        window.open(e.layer.feature.properties.url);
     });
+});
 
-   map.scrollWheelZoom.disable();
+map.scrollWheelZoom.disable();
+
+
+var app = angular.module("switchableGrid", ['ngResource']);
+
+app.factory('instagram', function($resource){
+
+  return {
+    fetchPopular: function(callback){
+
+      var api = $resource('https://api.instagram.com/v1/tags/wine/media/recent?client_id=:client_id&callback=JSON_CALLBACK',{
+        client_id: '0c766e6dbec44777b5e340a3dfef2d80'
+      },{
+        fetch:{method:'JSONP'}
+      });
+
+      api.fetch(function(response){
+
+        callback(response.data);
+
+      });
+    }
+  }
+
+});
+
+function SwitchableGridController($scope, instagram){
+
+
+  $scope.layout = 'list';
+
+  $scope.pics = [];
+  instagram.fetchPopular(function(data){
+     $scope.pics = data;
+  });
+
+}
 
 
 </script>

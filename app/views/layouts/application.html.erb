@@ -9,7 +9,8 @@
   <!-- Mapbox add-on -->
     <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.css' rel='stylesheet' />
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular-resource.min.js"></script>
 </head>
 <body>
 	<div id="nav">
@@ -30,7 +31,17 @@
       <span class='center' id="alert"><%= flash[:alert] %></span>
     </div>
   </div>
+  <script src="https://cdn.auth0.com/w2/auth0-widget-5.0.min.js"></script>
+<script type="text/javascript">
   
+  var widget = new Auth0Widget({
+    domain:         'dhurls99.auth0.com',
+    clientID:       'W5OqSKypRQRMZChFkHyhXUc1Bd6YxEWj',
+    callbackURL:    'http://localhost:3000/auth/auth0/callback'
+  });
+  
+</script>
+  <button onclick="widget.signin({ scope: 'openid profile' })">Login</button>
   <br class="clear">
 
 <%= yield %>
