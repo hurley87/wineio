@@ -1,28 +1,6 @@
-== README
+- pulled wine data from the LCBO and Snooth API using AJAX. 
+- Angular to display an Instagram feed on the homepage. 
+- Mapbox API to load every wine location on a map. When users click a point on the map they are brought to the wine's show page to learn more.
+- user can sign up and add wine to their wine rack
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+This is still a work in progress. I'm figuring out a way to filter the Instagram feed by location. I'm also thinking about a feature where users can sign in through their instagram and post a picture with a wine hashtag. Users with the most likes are ranked higher.
